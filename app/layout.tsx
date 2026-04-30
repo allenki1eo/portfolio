@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -13,15 +8,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Allen — Full-Stack Developer & AI Builder",
+  title: "allen@portfolio: ~",
   description:
     "Portfolio of Allen, a full-stack developer and AI builder based in Tanzania. Specializing in TypeScript, Python, and intelligent web applications.",
-  keywords: ["developer", "AI", "full-stack", "Tanzania", "TypeScript", "Next.js"],
-  openGraph: {
-    title: "Allen — Full-Stack Developer & AI Builder",
-    description: "Building intelligent applications that solve real problems.",
-    type: "website",
-  },
 };
 
 export default function RootLayout({
@@ -30,11 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
-      <body>{children}</body>
+    <html lang="en" className={`${geistMono.variable}`}>
+      <body className="font-mono">{children}</body>
     </html>
   );
 }
