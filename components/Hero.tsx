@@ -97,7 +97,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 text-xs text-[#888a85] mb-5">
               <span>📍 {personalInfo.location}</span>
               <span className="text-[#8ae234]">● Available for hire</span>
-              <span>uptime: 3+ years</span>
+              <span>since: 2020</span>
             </div>
             <p className="text-[#d3d7cf] max-w-xl leading-relaxed text-sm sm:text-base">
               {personalInfo.subtitle}

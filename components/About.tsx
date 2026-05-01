@@ -63,7 +63,7 @@ export default function About() {
               &ldquo;Technology should empower people. Every line of code I write
               is a step toward making tools that genuinely improve lives.&rdquo;
             </p>
-            <p className="text-[#fcaf3e] text-xs mt-2">— Allen</p>
+            <p className="text-[#fcaf3e] text-xs mt-2">— Allen Kileo</p>
           </motion.div>
 
           {/* Prompt with cursor */}

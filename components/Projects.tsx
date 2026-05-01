@@ -6,12 +6,24 @@ import { useRef, useState } from "react";
 import { projects } from "@/lib/data";
 import TerminalWindow from "./TerminalWindow";
 
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  github: string;
+  live?: string | null;
+  featured: boolean;
+  gradient: string;
+}
+
 export default function Projects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [showAll, setShowAll] = useState(false);
 
-  const visible = showAll ? projects : projects.filter((p) => p.featured);
+  const visible = showAll
+    ? projects
+    : (projects as Project[]).filter((p) => p.featured);
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 font-mono">
@@ -29,11 +41,8 @@ export default function Projects() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
             {visible.map((project, i) => (
-              <motion.a
+              <motion.div
                 key={project.title}
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
@@ -50,14 +59,36 @@ export default function Projects() {
                 <p className="text-[#888a85] text-xs leading-relaxed mb-3">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mb-3">
                   {project.tags.map((tag) => (
                     <span key={tag} className="file-tag text-[10px]">
                       {tag.toLowerCase()}
                     </span>
                   ))}
                 </div>
-              </motion.a>
+
+                {/* Action links */}
+                <div className="flex items-center gap-3 text-[11px]">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#8ae234] hover:text-[#fcaf3e] transition-colors flex items-center gap-1"
+                    >
+                      <span>live →</span>
+                    </a>
+                  )}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#888a85] hover:text-[#729fcf] transition-colors flex items-center gap-1"
+                  >
+                    <span>src →</span>
+                  </a>
+                </div>
+              </motion.div>
             ))}
           </div>
 

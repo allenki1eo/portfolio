@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "allen@portfolio: ~",
   description:
-    "Portfolio of Allen, a full-stack developer and AI builder based in Tanzania. Specializing in TypeScript, Python, and intelligent web applications.",
+    "Portfolio of Allen Kileo, a full-stack developer and AI builder based in Tanzania. Specializing in TypeScript, Python, and intelligent web applications.",
 };
 
 export default function RootLayout({
